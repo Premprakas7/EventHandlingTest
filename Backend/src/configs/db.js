@@ -5,3 +5,4 @@ module.exports = () => {
     "mongodb+srv://prem:prem@cluster0.fkthv.mongodb.net/eventhandling"
   );
 };
+
