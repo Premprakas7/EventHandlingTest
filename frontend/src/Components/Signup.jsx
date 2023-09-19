@@ -20,26 +20,37 @@ const Signup = () => {
     newData[e.target.id]=e.target.value;
     setData(newData);
   }
-  
+
   return (
     <div>
-      <form onSubmit={(e)=>handleSubmit(e)} className=''>
-        <h1>Register</h1>
+      <form onSubmit={(e)=>handleSubmit(e)} className='border-2 border-black bg-[#00204a]
+     rounded-md w-[30rem] ml-[30%] mt-[5%]'>
+        <p className='text-[2rem] font-bold text-[white] p-[1rem]' >Register</p>
       <div>
-        <p>Email Address</p>
+        <p className='text-[white] text-[1.2rem]'>Email Address</p>
         <input type="text" 
+         className='h-[2rem] w-[20rem] mb-[1rem]'
         value={data.email}
         placeholder='Email'
          id="email" 
          onChange={(e)=>handleChange(e)} />
       </div>
       <div>
-        <p>Full Name</p>
+        <p className='text-[white]'>Full Name</p>
         <input type="text" 
+        className='h-[2rem] w-[20rem]'
         value={data.name}
         placeholder='Name'
          id="name"
          onChange={(e)=>handleChange(e)} />
+      </div>
+      <div>
+        <input type="submit" className='text-[white] bg-[#780000] w-[10rem] h-[2rem] m-[1rem]' />
+      </div>
+      <div>
+        <p className=''>Already Registered</p>
+       
+        <button className=' bg-[white] w-[8rem]'>Login</button>
       </div>
       </form>
     </div>
