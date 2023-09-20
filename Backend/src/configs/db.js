@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 module.exports = () => {
   return mongoose.connect(
-    "mongodb+srv://prem:prem@cluster0.fkthv.mongodb.net/eventhandling"
+    "mongodb+srv://JWT:JWT@kartik.exjuu.mongodb.net/?retryWrites=true&w=majority"
   );
 };
 
