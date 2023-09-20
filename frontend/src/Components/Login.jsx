@@ -1,13 +1,32 @@
 import React, { useState } from 'react'
-import {Link} from "react-router-dom"
+import { useDispatch } from 'react-redux';
+import {Link, useNavigate} from "react-router-dom"
+import { login } from '../Redux/action';
+import { LOGIN_SUCCESS } from '../Redux/actionType';
 
 const Login = () => {
+  const dispatch=useDispatch();
   const [email, setEmail]=useState("");
   const [name, setName]=useState("");
+  const navigate=useNavigate();
+
+
+const handleSubmit=(e)=>{
+e.preventDefault();
+if(email && name){
+  dispatch(login({email,name}))
+  .then((res)=>{
+    if(res.type === LOGIN_SUCCESS){
+      navigate("/", {replace:true})}
+    }
+  )
+}
+}
 
   return (
     <div>
-      <form className='border-2 border-black bg-[#00204a]
+      <form onSubmit={handleSubmit} 
+      className='border-2 border-black bg-[#00204a]
      rounded-md w-[30rem] ml-[30%] mt-[5%]'>
       <p className='text-[2rem] font-bold text-[white] p-[1rem]'>Login</p>
       <div>
