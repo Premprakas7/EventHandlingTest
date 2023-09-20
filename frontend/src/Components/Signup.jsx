@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react'
+import {Link} from "react-router-dom"
 
 const Signup = () => {
   const [data,setData]=[{
@@ -48,9 +49,8 @@ const Signup = () => {
         <input type="submit" className='text-[white] bg-[#780000] w-[10rem] h-[2rem] m-[1rem]' />
       </div>
       <div>
-        <p className=''>Already Registered</p>
-       
-        <button className=' bg-[white] w-[8rem]'>Login</button>
+        <p className='text-[white] text-[1.2rem]'>Already Registered</p>
+        <Link to="/login"><button className=' bg-[white] w-[8rem]'>Login</button></Link>
       </div>
       </form>
     </div>
