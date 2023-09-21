@@ -6,7 +6,7 @@ const secreteKey = 'secreteKey'
 
 router.post('',async(req,res)=>{
     const {email , name} =req.body
-    User.find({email:email},(err,user)=>{
+    User.findOne({email:email},(err,user)=>{
         if(user){
             if(name==user.name){
                 jwt.sign({user},secreteKey,{expiresIn:'500s'},(err,token)=>{
