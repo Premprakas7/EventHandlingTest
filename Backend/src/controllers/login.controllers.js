@@ -6,7 +6,7 @@ const secreteKey = 'secreteKey'
 
 router.post('',async(req,res)=>{
     const {email , name} =req.body
-    User.findOne({email:email},(err,user)=>{
+   await User.findOne({email:email},(err,user)=>{
         if(user){
             if(name==user.name){
                 jwt.sign({user},secreteKey,{expiresIn:'500s'},(err,token)=>{
@@ -22,6 +22,4 @@ router.post('',async(req,res)=>{
         }
     })
 })
-
-
 module.exports = router
