@@ -4,8 +4,8 @@ const User = require('../models/user.model')
 
 
 router.post('' , async(req,res)=>{
-    const {email,name } = req.body
-   await User.findOne({email:email},async(err,user)=>{
+    const {email,name} = req.body
+    User.findOne({email:email}, async(err,user)=>{
         if(user){
             res.send({message:"User Already Registerd"})
         }else{
@@ -13,7 +13,6 @@ router.post('' , async(req,res)=>{
                 email,
                 name
             })
-           
             user.save(err=>{
                 if(err){
                     res.send(err)
