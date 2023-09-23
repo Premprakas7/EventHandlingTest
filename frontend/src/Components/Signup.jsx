@@ -1,19 +1,19 @@
 import axios from 'axios';
-import React from 'react'
+import React, { useState } from 'react'
 import {Link} from "react-router-dom"
 
 const Signup = () => {
-  const [data,setData]=[{
+  const [data,setData]=useState({
     email:"",
     name:""
-  }];
+  });
 
   const handleSubmit=(e)=>{
     e.preventDefault();
-    axios.get("",{
+    axios.post("https://jwtback.onrender.com/register",{
       email:data.email,
       name:data.name
-    })
+    }).then((res)=>console.log(res.data))
   }
 
   const handleChange=(e)=>{
@@ -45,8 +45,9 @@ const Signup = () => {
          id="name"
          onChange={(e)=>handleChange(e)} />
       </div>
-      <div>
+      <div> <Link to="/login">
         <input type="submit" className='text-[white] bg-[#780000] w-[10rem] h-[2rem] m-[1rem]' />
+        </Link>
       </div>
       <div>
         <p className='text-[white] text-[1.2rem]'>Already Registered</p>
